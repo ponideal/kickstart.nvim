@@ -12,7 +12,7 @@ return {
   -- Пример: Файловый обозреватель Nvim Tree
   {
     'kyazdani42/nvim-tree.lua',
-    requires = {
+    dependencies = {
       'kyazdani42/nvim-web-devicons', -- опционально, для иконок файлов
     },
     config = function()
@@ -23,7 +23,7 @@ return {
   -- Пример: Статусная строка Lualine
   {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function()
       require('lualine').setup {
         options = {
@@ -36,7 +36,7 @@ return {
   -- Пример: Автозавершение с nvim-cmp и LuaSnip
   {
     'hrsh7th/nvim-cmp',
-    requires = {
+    dependencies = {
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
@@ -71,7 +71,7 @@ return {
   -- Пример: Fuzzy Finder Telescope
   {
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('telescope').setup {}
     end,
