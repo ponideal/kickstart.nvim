@@ -92,4 +92,12 @@ return {
       }
     end,
   },
+
+  -- Example: GitHub Copilot Plugin
+  {
+    'github/copilot.vim',
+    config = function()
+      -- Optional: Add any Copilot configuration here
+    end,
+  },
 }
