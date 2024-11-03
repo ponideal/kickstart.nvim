@@ -3,20 +3,20 @@
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
-========                                    .-----.          ========
-========         .----------------------.   | === |          ========
-========         |.-""""""""""""""""""-.|   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||                    ||   |-----|          ========
-========         ||:Tutor              ||   |:::::|          ========
-========         |'-..................-'|   |____o|          ========
-========         `"")----------------(""`   ___________      ========
-========        /::::::::::|  |::::::::::\  \ no mouse \     ========
-========       /:::========|  |==hjkl==:::\  \ required \    ========
-========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
-========                                                     ========
+=========                                    .-----.          ========
+=========         .----------------------.   | === |          ========
+=========         |.-""""""""""""""""""-.|   |-----|          ========
+=========         ||                    ||   | === |          ========
+=========         ||   KICKSTART.NVIM   ||   |-----|          ========
+=========         ||                    ||   | === |          ========
+=========         ||                    ||   |-----|          ========
+=========         ||:Tutor              ||   |:::::|          ========
+=========         |'-..................-'|   |____o|          ========
+=========         `"")----------------(""`   ___________      ========
+=========        /::::::::::|  |::::::::::\  \ no mouse \     ========
+=========       /:::========|  |==hjkl==:::\  \ required \    ========
+=========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
+=========                                                     ========
 =====================================================================
 =====================================================================
 
@@ -76,7 +76,7 @@ Kickstart Guide:
     Feel free to delete them once you know what you're doing, but they should serve as a guide
     for when you are first encountering a few different constructs in your Neovim config.
 
-If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
+  If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
 
 I hope you enjoy your Neovim journey,
 - TJ
@@ -243,7 +243,8 @@ require('lazy').setup({
   --    require('gitsigns').setup({ ... })
   --
   -- See `:help gitsigns` to understand what the configuration keys do
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
+  {
+    -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
@@ -627,12 +628,12 @@ require('lazy').setup({
         -- ts_ls = {},
         --
         -- ruff_lsp = {
-        --  init_options = {
-        --   settings = {
+        --   init_options = {
+        --     settings = {
         -- Any extra CLI arguments for `ruff` go here.
-        --     args = {},
+        --       args = {},
+        --    },
         --  },
-        -- },
         -- },
         lua_ls = {
           -- cmd = {...},
@@ -650,6 +651,16 @@ require('lazy').setup({
         },
       }
 
+      -- Добавляем ruff_lsp в список серверов
+      servers.ruff_lsp = {
+        init_options = {
+          settings = {
+            -- Здесь вы можете добавить дополнительные аргументы для `ruff`, если необходимо.
+            args = {},
+          },
+        },
+      }
+
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
@@ -661,6 +672,7 @@ require('lazy').setup({
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
+      table.insert(ensure_installed, 'ruff-lsp')
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
