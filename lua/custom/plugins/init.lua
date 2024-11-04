@@ -5,7 +5,7 @@ return {
   {
     'gruvbox-community/gruvbox',
     config = function()
-      vim.cmd('colorscheme gruvbox')
+      vim.cmd 'colorscheme gruvbox'
     end,
   },
 
@@ -69,13 +69,13 @@ return {
   },
 
   -- Пример: Fuzzy Finder Telescope
-  {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('telescope').setup {}
-    end,
-  },
+  --  {
+  --    'nvim-telescope/telescope.nvim',
+  --    dependencies = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     require('telescope').setup {}
+  --    end,
+  --  },
 
   -- Пример: GitSigns для отображения изменений в Git
   {
